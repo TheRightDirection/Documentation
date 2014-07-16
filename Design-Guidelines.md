@@ -70,3 +70,34 @@ When to not...
         }
     }
         
+It may seem trivial, but it is important the code looks similar across the board.
+Finally just a few points about variable use.
+
+Make sure you use the `var` declaration on local variables. JavaScript creates globals by default, so you will quickly pollute the namespace otherwise. Make sure you name your variables logically. If I was working on that collage library I would name the picture collageImage or collageElement. Camel case is preferred, when in doubt use longer variable names. We can always minify later.
+
+If you do need globals try to group these together either at the top of your file or in an initialization function. Typically object encapsulation will be preferred, but for smaller libraries it might not make sense. For all variables set them before use, and clean them up after. Do not trust that a global has been set, check it, or better still set it yourself. When a variable is no longer required set it to undefined `x = undefined`, and add checks to make sure the data you are working with is valid.
+
+### Comments
+
+Comment everything. On longer functions add notes about what it will do, and in appropriate placed tell how it works. Make notes about your logic and todos if necessary.
+
+Formatting and position for comments is a little less important, but try to match the below example. Make sure that you use `//` for all commenting. The multi-line comment `/*  */` should only be used in debugging to deactivate chunks of code.
+
+    function cleanUp(){
+        //Wrap up the final processing and clean unnecessary variables.
+        
+        //Go through all our values and delete them.
+        for (var index = 0; index < 100; index++){
+            if (values.length == 0){ break; } //Skip processing if nothing is there.
+            values[index] = undefined;
+        }
+
+        goodBye()
+        //Sends final goodbye to the system and cuts power.
+        //Seems to work well but there is a slight delay.
+        //TODO: Investigate and patch delay problem.
+    }
+
+That wasn't too painful. You have finished part one. You should have a general idea what we are looking for. The rest of the rules in this documentation set describe particular instances of when and how to implement these design strategies. If you learned nothing else from this document just please remember:
+
+**Keep it simple, keep it smart, keep it consistent.**
