@@ -16,6 +16,7 @@ _**1. Intro (This page)**_
 
 
 _**2. Design Guidelines**_
+
 1. General Philosophy
 
 1. Syntax Rules
